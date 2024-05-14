@@ -3,8 +3,8 @@ from PIL import Image
 import os
 
 # change size for all image file
-source_folder = 'C:/Users/DELL/Desktop/pics/New folder (2)/'
-destination_folder = 'C:/Users/DELL/Desktop/pics/New folder (3)/'
+source_folder = 'C:/Users/PC/Desktop/hinh/'
+destination_folder = 'C:/Users/PC/Desktop/New folder/'
 directory = os.listdir(source_folder)
 print(directory)
 
@@ -12,9 +12,9 @@ for item in directory:
     img = Image.open(source_folder + item)
     width, height = img.size
     ratio = width / height
-    new_width = 900
+    new_width = 1024
     new_height = int(new_width/ratio)
-    imgResize = img.resize((new_width, new_height), Image.ANTIALIAS)
+    imgResize = img.resize((new_width, new_height), Image.LANCZOS)
     imgResize.save(destination_folder + item[:-4] + '.jpg', quality=100)
 
 # # change name of file
